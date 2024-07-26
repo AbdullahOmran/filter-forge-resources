@@ -2,15 +2,13 @@ from fastapi import APIRouter, HTTPException, status, Depends
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from app import crud, schemas
-from app.core.security import create_access_token, verify_password,Token
+from app.core.security import create_access_token, verify_password,Token, authenticate_user
 from app.database import get_db
 from fastapi.security import OAuth2PasswordRequestForm
 from app.core.config import settings
 
 
 router = APIRouter()
-
-
 
 @router.post("/token")
 async def login(
@@ -30,9 +28,11 @@ async def login(
     )
     return Token(access_token=access_token, token_type="bearer")
 
+
+
 @router.post("/register", response_model=schemas.User)
-def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
-    db_user = crud.get_user_by_email(db, email=user.email)
+async def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
+    db_user = crud.get_user_by_username(db, username=user.username)
     if db_user:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
