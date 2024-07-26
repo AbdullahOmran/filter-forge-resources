@@ -1,7 +1,11 @@
 
 from app.core.config import settings
 from app.crud import get_user_by_username
-
+from passlib.context import CryptContext
+import jwt
+from typing import Union
+from datetime import datetime, timedelta, timezone
+from pydantic import BaseModel
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 

@@ -27,4 +27,5 @@ class User(UserBase):
     is_superuser: bool
 
     class Config:
-        orm_mode = True
+        # orm_mode = True  <deprecated>
+        from_attributes = True

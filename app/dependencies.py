@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from app.core.security import decode_access_token, TokenData
 from app.database import get_db
 from app.schemas.user import User
+from typing import Union, Annotated
 from app.crud import get_user_by_username
 
 

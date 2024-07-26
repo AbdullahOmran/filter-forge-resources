@@ -1,6 +1,10 @@
 from fastapi import Depends, FastAPI
 from .routers import user, auth
+from app import models
+from app.database import engine
 
+# create database tables
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
