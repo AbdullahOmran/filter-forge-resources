@@ -1,4 +1,5 @@
 from pydantic import BaseModel, EmailStr
+from typing import Union
 
 
 
@@ -15,7 +16,7 @@ from pydantic import BaseModel, EmailStr
 
 class UserBase(BaseModel):
     username: str
-    email: EmailStr
+    email: Union[EmailStr, None] = None
 
 class UserCreate(UserBase):
     password: str

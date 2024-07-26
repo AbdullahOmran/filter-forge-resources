@@ -11,21 +11,7 @@ from pydantic import BaseModel
 
 router = APIRouter()
 
-class Token(BaseModel):
-    access_token: str
-    token_type: str
 
-class TokenData(BaseModel):
-    username: Union[str, None] = None
-
-
-def authenticate_user(fake_db, username: str, password: str):
-    user = get_user(fake_db, username)
-    if not user:
-        return False
-    if not verify_password(password, user.hashed_password):
-        return False
-    return user
 
 
 
