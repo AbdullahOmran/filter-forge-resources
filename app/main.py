@@ -2,8 +2,6 @@ from fastapi import Depends, FastAPI
 from .routers import user, auth
 
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/v1/token")
-
 app = FastAPI()
 
 app.include_router(user.router, prefix="/api/v1", tags=["users"])
