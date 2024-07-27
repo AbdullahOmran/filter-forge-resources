@@ -8,7 +8,7 @@ from app import schemas
 router = APIRouter()
 
 
-@router.get("/users/me/", response_model=schemas.User)
+@router.get("/users/me", response_model=schemas.User)
 async def read_users_me(
     current_user: Annotated[schemas.User, Depends(get_current_active_user)],
 ):
