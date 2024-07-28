@@ -23,4 +23,3 @@ def delete_workspace(workspace_id: int, db: Session = Depends(get_db), current_u
         raise HTTPException(status_code=404, detail="Workspace not found")
     crud.delete_workspace(db=db, workspace_id=workspace_id)
     return workspace
-
