@@ -1,5 +1,7 @@
 from sqlalchemy import Column, Integer, Float, Boolean, ForeignKey
-from app.db.base_class import Base
+from app.database import Base
+from sqlalchemy.orm import relationship
+
 
 class ZerosPoles(Base):
     __tablename__ = "zeros_poles"

@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from app.models.zeros_poles import ZerosPoles
-from app.schemas.workspace import ZerosPolesCreate
+from app.schemas.zeros_poles import ZerosPolesCreate
 
 
 def get_zeros_poles(db: Session, workspace_id: int):

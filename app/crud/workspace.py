@@ -19,4 +19,4 @@ def delete_workspace(db: Session, workspace_id: int):
     db_workspace = db.query(Workspace).filter(Workspace.id == workspace_id).first()
     db.delete(db_workspace)
     db.commit()
-
+    

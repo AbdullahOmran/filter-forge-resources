@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from app.db.base_class import Base
+from app.database import Base
 
 class Workspace(Base):
     __tablename__ = "workspaces"

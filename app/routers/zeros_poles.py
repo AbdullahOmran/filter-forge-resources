@@ -5,6 +5,8 @@ from app import crud, schemas
 from app.dependencies import get_current_active_user
 from app.database import get_db
 from app.models.user import User
+from app.models.zeros_poles import ZerosPoles
+from app.models.workspace import Workspace
 
 router = APIRouter()
 
